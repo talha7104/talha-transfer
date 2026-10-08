@@ -1,0 +1,142 @@
+<p class="dek"><em>Every vendor now sells an "AI agent" — but most of what's labeled agentic is a chatbot or a workflow with better marketing. Here's how to tell the three apart, what each costs, and the one question that sorts them.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Three distinct tools:</strong> chatbots talk, workflow automation follows a predefined recipe, AI agents decide and act. They solve different problems and fail in different ways.</li>
+<li>Gartner calls the relabeling <strong>"agent washing"</strong> — of thousands of vendors claiming agentic products, only ~130 offer genuinely agentic capabilities.</li>
+<li>The sorting question: <strong>does the tool need to decide what to do, or just execute steps you defined?</strong> Decide → agent candidate. Execute → workflow.</li>
+<li>Advanced AI agents cost roughly <strong>150x more per task</strong> than a basic chatbot (Gartner, via Computer Weekly) — and 40%+ of agentic projects are predicted to be canceled by end of 2027.</li>
+<li><strong>Bottom line:</strong> start with the workflow, measure, and promote to agent only where the flexibility pays. Match the tool to the job.</li>
+</ul>
+
+<p>Many software vendors now market their products as "AI agents." That has created real confusion about what actually qualifies as agentic — some products labeled as agents are traditional chat interfaces or workflow automations with limited autonomous behavior.</p>
+
+<p>The confusion has a price. Buyers risk paying for agent capabilities they don't need when simpler automation would solve the problem — or worse, handing real decisions to a system nobody supervised.</p>
+
+<p>There are three distinct tools here. They solve different problems, fail in different ways, and cost very different amounts to run. Picking the right one starts with knowing which is which.</p>
+
+<h2>Chatbot: it talks</h2>
+
+<p>A chatbot is a conversational interface. A person types or speaks; the system responds with text. It may be a scripted decision tree or a large language model with retrieval over your knowledge base — but its job is to answer, explain, or guide. It doesn't take action in your other systems unless someone wires that in deliberately.</p>
+
+<p>A chatbot is the right tool when the need is conversation: answering "what is the return policy," walking a new hire through onboarding docs, triaging a support ticket to the right queue. No business action required — just information, delivered well.</p>
+
+<p>Its limits are honest ones. Ask it to <em>do</em> something and it will describe doing it rather than do it. Give it a task spanning systems — check the inventory, hold the item, email the customer — and you've left chatbot territory.</p>
+
+<h2>Workflow automation: it follows the recipe</h2>
+
+<p>A workflow is a predefined sequence of steps: when this happens, do that, then that. A new lead fills a form → the CRM creates a record → a welcome email goes out → a task lands on a rep's board. The path is defined in advance, in code or a visual builder. It runs the same way every time.</p>
+
+<p>That determinism is the whole point. Workflows are testable, monitorable, and auditable — you can say exactly what will happen before it happens. For predictable, repeatable processes, workflows offer stronger predictability and easier auditing than agents, usually at a fraction of the running cost.</p>
+
+<p>The limit is rigidity. The moment an API payload changes shape or an edge case appears that nobody coded for, the workflow breaks — or silently does the wrong thing. Workflows don't improvise.</p>
+
+<h2>AI agent: it decides and acts</h2>
+
+<p>An agent is a language model inside a control loop where the model itself chooses the next action. You give it a goal — "resolve this customer complaint" — and it plans steps, calls tools (CRM, inbox, database), observes results, and adjusts.</p>
+
+<p>Reasoning, planning, tool use, memory, dynamic decision-making: that's the full stack that makes something genuinely agentic rather than a chatbot with extra steps.</p>
+
+<p>Agents are worth considering where the right next step changes case by case: triaging messy inbound requests, researching and qualifying leads across sources, handling exceptions that would stall a fixed workflow.</p>
+
+<h2>The one question that sorts them</h2>
+
+<p>When a vendor demo ends and you're deciding what you actually saw, ask one question: <strong>does the tool need to decide what to do, or does it just execute a step you already defined?</strong></p>
+
+<ul>
+<li>User only needs answers → <strong>chatbot</strong></li>
+<li>Process is fixed and repeatable → <strong>workflow automation</strong></li>
+<li>System must reason over context, pick tools, and adapt → <strong>AI agent</strong></li>
+</ul>
+
+<p>That distinction — decision versus execution — is the most useful first filter (<a href="https://albato.com/blog/publications/ai-agent-vs-chatbot-vs-workflow-automation" target="_blank" rel="noopener">Albato</a>).</p>
+
+<p>And beware the label: many production "agents" are actually workflows with fixed control flow — an LLM bolted onto a predefined path (<a href="https://github.com/handbook-academy/engineering-handbook/blob/HEAD/content/hld/part-9-ai-ml-system-design/03-ai-agent-architectures.md" target="_blank" rel="noopener">engineering handbook</a>). That's not a criticism — for many tasks the workflow version is the better product. The problem is the price tag that comes with the agent label.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agent-vs-chatbot-vs-workflow-automation-1.jpg" alt="Humanoid robot working at a laptop — chatbot vs workflow automation vs AI agent"></p>
+
+<h2>Where each one wins in practice</h2>
+
+<table>
+<thead>
+<tr><th>Scenario</th><th>Right tool</th><th>Why</th></tr>
+</thead>
+<tbody>
+<tr><td>Customer support triage</td><td>Chatbot + workflow</td><td>Chatbot answers and classifies; workflow routes the ticket and updates the CRM</td></tr>
+<tr><td>Messy multi-part complaint</td><td>Agent</td><td>Needs three systems checked before anyone can reply — judgment call</td></tr>
+<tr><td>Sales follow-up sequences</td><td>Workflow</td><td>Predictable motion: enrich, sequence, task the rep</td></tr>
+<tr><td>Account research + personalized outreach</td><td>Agent</td><td>Judgment-heavy, varies per account</td></tr>
+<tr><td>Operations reporting</td><td>Workflow</td><td>Scheduled pull-and-post; an agent just adds cost and failure modes</td></tr>
+<tr><td>Exception handling</td><td>Agent</td><td>Fixed rules choke on the invoice that doesn't match the PO; reasoning doesn't</td></tr>
+</tbody>
+</table>
+
+<p>That pattern — chatbots at the front, workflows as the plumbing, agents reserved for the judgment calls — is how many real deployments end up composed (<a href="https://albato.com/blog/publications/ai-agent-vs-chatbot-vs-workflow-automation" target="_blank" rel="noopener">Albato</a>).</p>
+
+<h2>The price of picking wrong</h2>
+
+<p>Here's what the "just buy the agent" pitch leaves out. Gartner's analysis of AI inference economics, <a href="https://www.computerweekly.com/news/366648782/Gartner-Agentic-AI-wont-benefit-from-economies-of-scale" target="_blank" rel="noopener">reported by Computer Weekly</a>, found that advanced AI agents with reasoning capabilities cost roughly <strong>150 times more to run than a similarly sized basic chatbot for a single task</strong> — because multi-step agentic work consumes tokens exponentially, often on the most expensive models.</p>
+
+<p>The failure data is just as sobering:</p>
+
+<ul>
+<li>Gartner predicts <strong>over 40% of agentic AI projects will be canceled by end of 2027</strong> — escalating costs, unclear business value, inadequate risk controls (<a href="https://searchengineland.com/gartner-40-of-agentic-ai-projects-will-fail-making-humans-indispensable-474695" target="_blank" rel="noopener">Search Engine Land</a>).</li>
+<li>A March 2026 survey of 650 enterprise tech leaders: 78% launched agent pilots, <strong>fewer than 14% reached production scale</strong>.</li>
+<li>McKinsey's November 2025 State of AI: only 23% of companies scaling any agentic system.</li>
+<li>Cleanlab's finding: just a <strong>5.2% production rate</strong> across nearly 2,000 respondents.</li>
+<li>Gartner warns that without clean, well-contextualized data, agents hallucinate more, cost more, and erode the customer experiences they were bought to improve (<a href="https://cxotoday.com/ai/why-your-ai-agents-are-failing-the-gartner-report-on-semantic-gaps/" target="_blank" rel="noopener">CXOToday</a>).</li>
+</ul>
+
+<p>None of this means agents are a bad idea. It means they're a <strong>power tool</strong>: expensive to run, dangerous without guardrails, wasted on jobs a cheaper tool does better.</p>
+
+<h2>How to choose: start with the workflow</h2>
+
+<p>The most useful guidance comes from the people who build the underlying models. Anthropic's "Building Effective Agents" draws the line precisely: workflows orchestrate models and tools through predefined code paths; agents let the model dynamically direct its own process — and its explicit recommendation is to <strong>find the simplest solution possible and add complexity only when needed</strong> (<a href="https://github.com/secureworks-group/secureworks-backend/blob/HEAD/docs/research-autonomous-ai-agent.md" target="_blank" rel="noopener">via Secureworks' research notes</a>).</p>
+
+<p>Translated into a buying process you can run this week:</p>
+
+<ol>
+<li><strong>Map the task, not the hype.</strong> Write down what actually happens today, step by step, including the exceptions. If the exceptions fit in a short list, you have a workflow.</li>
+<li><strong>Apply the decision test.</strong> Does the tool need to decide what to do next, or execute steps you define? Decide → agent candidate. Execute → workflow.</li>
+<li><strong>Start with the workflow and measure.</strong> Ship the deterministic version first. It's cheaper, testable — and it gives you the baseline the agent version has to beat.</li>
+<li><strong>Promote to agent only where the flexibility pays.</strong> The criterion is concrete: the workflow keeps failing on cases a reasoning system handles, and those cases justify the premium running cost plus supervision overhead.</li>
+<li><strong>Supervise the agent like a junior employee.</strong> Step budgets, tool allow-lists, human approval on irreversible actions, per-run cost monitoring, audit logs of every tool call.</li>
+</ol>
+
+<h2>Five questions to ask any "agent" vendor</h2>
+
+<ol>
+<li>Can we inspect every tool call the system makes, with a full audit log?</li>
+<li>Can we restrict which actions it may take without human approval?</li>
+<li>How does it handle failures — stop, escalate, or silently continue?</li>
+<li>What does a month of typical usage cost, and what caps or alerts exist?</li>
+<li>Who owns the behavior when it goes wrong — and who can revoke access in one step?</li>
+</ol>
+
+<p>If a vendor can't answer these crisply, you're not buying an agent. You're buying a demo.</p>
+
+<h2>The bottom line</h2>
+
+<p>One more filter belongs in every buying decision, and it matters more than the chatbot/workflow/agent label: <strong>what happens when the system is wrong?</strong></p>
+
+<p>A chatbot giving a wrong answer is an embarrassment. A workflow sending the wrong email is a cleanup job. An agent issuing the wrong refund or deleting the wrong record is a liability. Reversible, low-stakes actions can tolerate autonomy. Irreversible actions touching money, customers, or compliance need human approval gates — no matter what the tool is called.</p>
+
+<p>Gartner projects 40% of enterprise applications will include task-specific AI agents by end of 2026, up from under 5% in 2025. Organizations benefit most when they match capabilities to operational needs: chatbots talking, workflows executing, agents deciding — each supervised at the level its failure modes demand.</p>
+
+<p>Not sure which one you were sold? Our <a href="https://www.seikodigital.com/services/ai-automation.html" target="_blank" rel="noopener">AI automation services</a> start with that exact question. The <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">free AI audit</a> maps your processes to the right tool before you spend anything — and if the numbers don't work, the <a href="https://www.seikodigital.com/roi.html" target="_blank" rel="noopener">ROI calculator</a> will show it.</p>
+
+<h2>FAQ</h2>
+
+<h3>What's the difference between an AI agent and a chatbot?</h3>
+<p>A chatbot answers — it's a conversational interface. An agent decides and acts: it plans multi-step sequences, calls tools in your systems (CRM, inbox, database), observes results, and adjusts. The test: does the tool need to decide what to do next, or just execute steps you defined?</p>
+
+<h3>When is workflow automation better than an AI agent?</h3>
+<p>When the process is fixed and repeatable. Workflows are deterministic, testable, auditable, and far cheaper to run. Anthropic's own guidance: find the simplest solution possible and add complexity only when needed.</p>
+
+<h3>Why do so many agentic AI projects fail?</h3>
+<p>Gartner points to escalating costs (agents cost ~150x more per task than basic chatbots), unclear business value, and inadequate risk controls — predicting 40%+ of agentic projects canceled by end of 2027. Dirty data makes it worse: agents hallucinate more and erode customer experience.</p>
+
+<h3>How do I spot "agent washing"?</h3>
+<p>Ask the vendor five questions: full audit logs of tool calls, restrictable actions, failure behavior, real monthly cost with caps, and who can revoke access in one step. Vague answers mean you're buying a demo, not an agent.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/ai-agent-vs-chatbot-vs-workflow-automation" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
