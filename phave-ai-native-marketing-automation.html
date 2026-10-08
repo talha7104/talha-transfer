@@ -1,0 +1,98 @@
+<p class="dek"><em>Marketo co-founder Jon Miller just came out of two years in stealth with Phave — an AI-native marketing automation platform built on reasoning instead of rules. Whether or not you work in marketing, the design split he's drawing applies to every automated workflow you run.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Phave</strong>, launched September 23, 2026 by Marketo co-founder Jon Miller, replaces rule-based marketing automation with AI reasoning: the system decides what each person should receive next.</li>
+<li>Core design: <strong>Maestro</strong> (an intelligence layer computing a per-person "Playlist"), plain-language operation, headless-by-default (MCP + REST API), and accounts as first-class records.</li>
+<li>Miller's thesis: <em>"Rules are good at what is allowed, but bad at deciding what is best."</em> Consent and frequency caps stay rules; everything judgment-based moves to reasoning.</li>
+<li>Pricing starts at <strong>$36,000/year</strong>, charged on monthly reach — not database size.</li>
+<li><strong>Bottom line:</strong> don't migrate tomorrow. Instead, find which of your own workflows still run on brittle rules — those are your first reasoning candidates.</li>
+</ul>
+
+<p>On September 23, 2026, Jon Miller — the co-founder of Marketo and Engagio — brought Phave out of two years in stealth. The pitch is blunt: an AI-native marketing automation platform positioned to replace Marketo, Pardot, Eloqua, and HubSpot, where AI decides what each person, account, and buying group should receive next.</p>
+
+<p>This matters beyond marketing. The marketing automation stack was one of the earliest places companies codified "if this, then that" workflows at scale. When the person who helped build that industry says rules were the wrong foundation, it's worth seeing what he built instead. (<a href="https://www.martechcube.com/marketo-co-founder-jon-miller-announced-the-launch-of-phave/" target="_blank" rel="noopener">MarTech Cube</a>)</p>
+
+<h2>What Phave actually launched</h2>
+
+<p>Phave's core is <strong>Maestro</strong>, an intelligence layer that computes a "Playlist" for each person: the touches most likely to reach the marketer's objective, ordered and timed for that individual. Before anything goes out, Maestro weighs everything else already queued for that person across every campaign.</p>
+
+<p>Campaigns are the albums — made and approved by the marketing team — and the Playlist mixes them into the right order for each listener. Three design choices matter for anyone evaluating automation tooling:</p>
+
+<ol>
+<li><strong>Plain-language operation.</strong> Marketers describe what they want in plain language instead of translating it into configuration. Campaigns, audiences, scoring, and automations no longer get stuck behind whoever knows the platform.</li>
+<li><strong>Headless by default.</strong> Phave runs through its own interface, through whatever AI client a team already uses, or headlessly via MCP and a versioned REST API — with permissions and approvals enforced identically whichever door a request comes through.</li>
+<li><strong>Accounts as first-class records.</strong> Accounts and buying groups each carry their own score and lifecycle stage. One account can hold several buying groups at once, at different stages — prospect and customer alike. Marketing to the committee that <em>expands</em> an account becomes possible, not just the one that bought it.</li>
+</ol>
+
+<p>The platform reached general availability in August 2026, with enterprise users including SambaNova, SPS Commerce, mabl, Servion, and Hypha. Bruce Eidsvik, Chief Growth Officer at Servion Global Solutions, said his team has more than doubled its marketing execution volume on the platform. (<a href="https://agilebrandguide.com/yesterdays-martech-ai-cx-news-september-24-2026/" target="_blank" rel="noopener">The Agile Brand Guide</a>)</p>
+
+<h2>Reasoning instead of rules: the core idea</h2>
+
+<p>Miller's thesis is clean enough to quote directly:</p>
+
+<blockquote><p><em>"Rules are good at what is allowed, but bad at deciding what is best. Consent, frequency and quiet hours should be rules. Choosing which of two good emails a person should get was never a job for a rule. Reasoning models can make that choice now. The legacy platforms stopped innovating years ago, and marketers are ready for something built for how B2B works today."</em></p></blockquote>
+
+<p>The technical argument underneath is straightforward. Every decision a legacy platform makes is a rule somebody wrote in advance: who belongs in a segment, what a lead is worth, which email comes next.</p>
+
+<p>Rules can't handle ambiguity or judgment. So every case has to be spelled out ahead of time — and most mature programs run two or three nurture tracks, not because their buyers are simple, but because that's all a rules system can manage.</p>
+
+<p>This is the same design line the industry is converging on from several directions at once. It's also a claim worth testing rather than applauding — which brings us to the launch details that deserve scrutiny.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-phave-ai-native-marketing-automation-1.jpg" alt="Digital marketing concept — AI-native automation"></p>
+
+<h2>The launch details worth scrutinizing</h2>
+
+<h3>The self-graded scorecard</h3>
+
+<p>Phave scored itself and the legacy platforms against 481 requirements drawn from twelve enterprise evaluations — each requirement scored and weighted by Claude rather than by Phave. It reported 2.97 for itself against 2.46 for HubSpot and 2.38 for Marketo, matching or beating every evaluated platform on at least 90% of requirements, with the methodology published at phave.com.</p>
+
+<p>Read the fine print the way a practitioner should: Phave picked the 481 questions, and Claude marked the answers. A published methodology is genuinely useful — it lets a buyer rerun the evaluation with their own requirement list and weights. But nobody should budget against a vendor's self-assessment. The same discipline applies to every platform already in your stack.</p>
+
+<h3>The pricing model</h3>
+
+<p>Phave starts at $36,000 a year, priced on the number of people who receive something in a given month — not on database size. That's a notable shift for a category that spent a decade charging for how much data sits in the system.</p>
+
+<p>Pricing on reach instead of storage aligns the vendor's incentives with actual execution. It's a trend worth watching across all your automation vendors.</p>
+
+<h3>The customer evidence so far</h3>
+
+<p>The launch's named customer result is a volume figure — doubled execution output — which measures throughput, not revenue impact. Throughput is a fine early signal for a platform built to remove configuration bottlenecks. It is not proof of pipeline.</p>
+
+<p>Treat it as a reason to trial, not to migrate. (<a href="https://agilebrandguide.com/yesterdays-martech-ai-cx-news-september-24-2026/" target="_blank" rel="noopener">The Agile Brand Guide</a>)</p>
+
+<h2>What this means for your business</h2>
+
+<p>Whether or not you ever evaluate Phave, this launch puts the design split in writing — and it applies to every automated workflow your company runs.</p>
+
+<p><strong>Draw the line between constraints and judgments.</strong> Write down which decisions are hard limits no model may cross — consent, frequency caps, quiet hours, pricing floors, brand and legal red lines — and which are judgments a model may make: which message, which sequence, which timing. Rules are for what is allowed; reasoning is for what is best. If your current automation can't express that split, it's a legacy architecture.</p>
+
+<p><strong>Audit your rule-based workflows for ambiguity.</strong> Anywhere your team maintains long exclusion lists or branching decision trees — workflows configured once and never touched again — you're paying the tax rules charge on ambiguity. Those are the first candidates for a reasoning-based approach, and also where silent failures hide.</p>
+
+<p><strong>Rerun vendor scorecards on your own requirements.</strong> Phave published its evaluation methodology — use it. Score any vendor, incumbent or challenger, against your own requirement list and weights before moving budget. A vendor's self-assessment tells you what <em>they</em> think matters; only your weights tell you what does.</p>
+
+<p><strong>Watch the pricing trend.</strong> Reach-based pricing instead of database-size pricing honestly aligns incentives. The next time any of your automation vendors renews, ask why you're paying for storage instead of outcomes.</p>
+
+<h2>The bottom line</h2>
+
+<p>Marketing automation was the proving ground for rule-based business workflows — and the person who built the old proving ground just declared it obsolete.</p>
+
+<p>The reasonable move isn't to migrate tomorrow. It's to find which of your own workflows still run on rules written in advance for cases that never stay that simple.</p>
+
+<p>Not sure where reasoning-based automation could replace brittle rules in your own stack? That's exactly what our free AI audit covers. <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">Get your free AI audit</a> — we'll map your current workflows, flag where rules are failing you, and show you where AI reasoning can take over safely.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is Phave?</h3>
+<p>Phave is an AI-native marketing automation platform launched in September 2026 by Marketo co-founder Jon Miller. Instead of rule-based workflows ("if this, then that"), its Maestro intelligence layer uses AI reasoning to decide what each person, account, and buying group should receive next.</p>
+
+<h3>How is reasoning-based automation different from rules?</h3>
+<p>Rules decide in advance what happens in every case — they can't handle ambiguity. Reasoning models make judgment calls at decision time (which message, which timing, which sequence). Miller's line: rules are for what's <em>allowed</em> (consent, frequency caps); reasoning is for what's <em>best</em>.</p>
+
+<h3>How much does Phave cost?</h3>
+<p>Starting at $36,000 per year, priced on the number of people reached per month rather than database size — a shift away from the category's traditional storage-based pricing.</p>
+
+<h3>Should our company switch to Phave?</h3>
+<p>Not on launch evidence alone — the published customer proof is throughput (doubled execution volume), not revenue impact. The smarter move: use its published evaluation methodology to score your current stack against your own requirements, and audit where brittle rules are costing you.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/phave-ai-native-marketing-automation" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
