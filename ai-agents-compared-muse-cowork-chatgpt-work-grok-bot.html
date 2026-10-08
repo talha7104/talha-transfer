@@ -1,0 +1,145 @@
+<p class="dek"><em>Five major labs shipped agents that act instead of answer in about ten weeks: Meta's Muse, Copilot Cowork, Claude Cowork, ChatGPT Work, and Grok Bot. Here's what each one actually does, what it costs, and the control question none of them answer well.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li>The comparison that matters isn't which chatbot writes best — it's <strong>which agent you can hand real work to</strong>, and what happens after you do.</li>
+<li><strong>Meta Muse</strong> leads on consumer reach (2.8M downloads in 12 days); <strong>Copilot Cowork</strong> on enterprise trust boundaries; <strong>Claude Cowork</strong> on file-heavy knowledge work; <strong>ChatGPT Work</strong> on finished deliverables; <strong>Grok Bot</strong> on the boldest architecture.</li>
+<li><strong>None has independent proof</strong> of making a business measurably better yet. Adoption numbers are not outcome numbers.</li>
+<li>Every agent above is <strong>rented</strong>: the vendor keeps the roadmap, the pricing power, the data plane, and the off switch.</li>
+<li><strong>Bottom line:</strong> pilot one workflow, measure honestly, and decide up front which parts of your operation you're willing to rent.</li>
+</ul>
+
+<p>The AI agent comparison that matters in late 2026 is not which chatbot writes best. It is which agent you can hand real work to — and what happens after you do.</p>
+
+<p>In about ten weeks, five major labs shipped agents that act instead of answer. Each promises the same thing: describe the outcome, and the work gets done while you do something else. The differences that matter for a business are quieter — where the agent runs, what it can touch, what it costs, and how much of it you actually control.</p>
+
+<p>This is a feature-by-feature comparison with the evidence behind each claim — and an honest account of where the evidence runs out.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agents-compared-muse-cowork-chatgpt-work-grok-bot-1.jpg" alt="AI robot assistant working among humans in a modern office"></p>
+
+<h2>The quick verdict</h2>
+
+<table>
+<thead>
+<tr><th>Agent</th><th>Best for</th><th>Price model</th><th>Evidence so far</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Meta Muse</strong></td><td>Consumers; shopping and personal tasks</td><td>Freemium; reported $20–$100 tiers</td><td>2.8M downloads in 12 days; no outcome data</td></tr>
+<tr><td><strong>Copilot Cowork</strong></td><td>Microsoft 365 shops</td><td>Seat + usage-based credits</td><td>Fortune 500 preview; no ROI data</td></tr>
+<tr><td><strong>Claude Cowork</strong></td><td>File-heavy knowledge work</td><td>Subscription</td><td>No independent data</td></tr>
+<tr><td><strong>ChatGPT Work</strong></td><td>Finished deliverables</td><td>Business / Enterprise plans</td><td>Vendor-reported usage only</td></tr>
+<tr><td><strong>Grok Bot</strong></td><td>Recurring operational work</td><td>Bundled with Cursor / SuperGrok</td><td>One vendor-supplied case study</td></tr>
+</tbody>
+</table>
+
+<p>Details, sources, and the control question below.</p>
+
+<h2>Meta Muse: the consumer agent that shops for you</h2>
+
+<p>Muse launched September 8, 2026 as Meta's personal AI agent — software that performs multi-step tasks on your behalf: sending emails, booking travel, filling out forms, managing calendars, making purchases. It keeps working in the background after the app closes and asks for approval before sensitive actions. (<a href="https://wisedime.com/meta-stock-surges-11-as-muse-ai-assistant-gains-popularity/" target="_blank" rel="noopener">WiseDime</a>)</p>
+
+<p>The architecture is the interesting part. Each user gets a dedicated virtual machine — the <strong>"Muse Secure VM"</strong> — isolating data and task progress, while a separate <strong>"Sentinel"</strong> agent monitors Muse's internet access. Credentials like passwords and payment methods are stored so Muse itself never sees them. (<a href="https://9to5mac.com/2026/09/18/metas-new-muse-ai-agent-app-overtakes-chatgpt-as-top-iphone-app/" target="_blank" rel="noopener">9to5Mac</a>)</p>
+
+<p>For commerce, Muse browses merchant sites, compares options, and checks out through Stripe Link, Shopify Shop Pay, and PayPal — generating a single-use virtual card per transaction so underlying card details never reach the agent. Reported integrations include Expedia and Instacart.</p>
+
+<p>On desktop, a dedicated Mac app drives native applications under strict opt-in permissions. At Meta Connect (Sept 23), Meta added real-time video chats with customizable avatars, dedicated Muse email addresses, and Mac app control. A palm-sized wearable, <strong>Muse Charm</strong>, is expected in December. (<a href="https://hypebeast.com/2026/9/meta-muse-ai-mac-app-turns-desktop-into-smart-agent" target="_blank" rel="noopener">Hypebeast</a>; <a href="https://the-decoder.com/meta-gives-its-muse-ai-agent-video-avatars-email-addresses-and-mac-control/" target="_blank" rel="noopener">The Decoder</a>)</p>
+
+<p>Muse is free within usage limits, with reported paid tiers of $20 and $100/month. On evidence: Apptopia measured ~2.8M downloads in 12 days and the app topped the App Store free charts. That's adoption, not effectiveness — twenty days post-launch, no independent data exists on how reliably Muse completes multi-step tasks.</p>
+
+<h2>Cowork, twice: Microsoft's and Anthropic's</h2>
+
+<p>One naming collision to clear up: two different companies ship an agentic product called <strong>Cowork</strong>. They aren't the same product and target different buyers.</p>
+
+<h3>Microsoft Copilot Cowork: the agent inside Microsoft 365</h3>
+
+<p>Generally available since June 16, 2026, after a three-month Frontier preview in which over half of the Fortune 500 tried it. It's the agentic layer of Microsoft 365 Copilot: multi-step tasks — emails, scheduling, Teams posts, calendar management — pausing for approval before anything sensitive goes out. It runs inside the Microsoft 365 trust boundary, acting as the user with the user's permissions. (<a href="https://github.com/susanthgit/aguidetocloud-revamp/blob/HEAD/content/blog/microsoft-copilot-cowork-complete-guide.md" target="_blank" rel="noopener">AGuideToCloud</a>)</p>
+
+<p>Notable mechanics: pick the model per task; pricing is a Copilot seat plus usage-based Copilot Credits with a cost-management dashboard; nine partner plugins at launch (Harvey, Moody's, monday.com among them). In Microsoft's own testing, Cowork ran 30–40% cheaper than Claude Cowork via its M365 connector on the same model — a vendor benchmark, read accordingly.</p>
+
+<p>On September 25, Microsoft rebuilt the Copilot app around Home (Chat + Cowork), Code, and Autopilot — the persistent agent with its own identity inside your M365 environment, entering private preview end of September. (<a href="https://www.windowsmode.com/new-microsoft-copilot-home-code-autopilot/" target="_blank" rel="noopener">WindowsMode</a>)</p>
+
+<h3>Claude Cowork: Anthropic's folder-first task worker</h3>
+
+<p>A desktop app since January 2026; since July it runs on web and mobile with tasks executing remotely in the cloud by default — work continues with the laptop closed and syncs across devices. Point Cowork at a folder and it reads, writes, and creates files there. Scheduled and recurring tasks since February 2026; subagents coordinate parallel workstreams.</p>
+
+<p>The plugin catalog is the largest of the five: seventeen Anthropic-built plugins as of September 2026 (sales, marketing, legal, finance, product, support, data, HR, design, engineering, operations), plus built-in browser and computer-use on desktop. Since late August, memory works across chat and Cowork in the cloud. (<a href="https://github.com/imtiazrayhan/agentscamp/blob/HEAD/src/content/tools/claude-cowork.md" target="_blank" rel="noopener">AgentsCamp</a>)</p>
+
+<p>Sweet spot: knowledge workers who live in files — research digests, release notes, spreadsheet cleanup, weekly reports. Independent effectiveness data: none yet.</p>
+
+<h2>ChatGPT Work: OpenAI's agent for ambitious projects</h2>
+
+<p>Announced July 9, 2026. Built for longer, multi-step tasks: gathers information across connected apps and files, produces finished materials — sheets, slides, docs, web apps — and stays with complex projects for hours by breaking them into steps. Built on Codex technology: 5M+ weekly Codex users, over 1M using it for non-coding work, per OpenAI.</p>
+
+<p>The model underneath was GPT-5.6 (state of the art at multi-step reasoning, per OpenAI); GPT-6 Astra has since rolled out across Work, Codex, and the API. A <strong>Data agent</strong> connects to approved enterprise sources — Snowflake, Databricks, BigQuery, Redshift — retaining existing table/row/column permissions, with admins controlling connections. Voice control arrived September 23, 2026. (<a href="https://ai-xblog.com/chatgpt-work-guide/" target="_blank" rel="noopener">AI-XBlog</a>)</p>
+
+<p>For organizations: ChatGPT Business and Enterprise plans, with SharePoint, Outlook, Teams, Google Drive, and Slack apps, a plugins directory, and Company Knowledge. On evidence: OpenAI's usage figures are vendor-reported. One concrete internal data point — 67% of OpenAI's go-to-market team using the Data agent — suggests real internal reliance. Independent outcome studies don't exist yet.</p>
+
+<h2>Grok Bot: xAI's agent with its own computer</h2>
+
+<p>Launched in early beta August 11, 2026 — and it takes the "AI coworker" idea literally: each bot gets its own <strong>persistent cloud computer</strong> with browser, terminal, and file access. A bot signs into work tools like a person would — updating a sales record, processing an invoice, filing a bug — keeps working after you close the app, and multiple bots can pass tasks to each other. Show a bot a process once and it saves it for next time: better suited to recurring work than assistants that start fresh each session. (<a href="https://agbest.com/news/story/4798589/grok-bot-sees-user-base-extend-400k-what-this-means-for-spcx-stock" target="_blank" rel="noopener">agbest.com</a>)</p>
+
+<p>Bots ask for approval when a decision is needed, and they're designed to get names, roles, and specializations rather than vague generalist briefs. Pricing isn't a separate subscription: access bundles into Cursor plans and SuperGrok tiers, usage resetting weekly with optional overage. On September 3, xAI added an enterprise governance layer — access, network, and audit controls — aimed at the shadow-IT pattern of employees adopting bots before IT knew. (<a href="https://www.ainvest.com/news/grok-bot-company-xai-paid-2609/" target="_blank" rel="noopener">ainvest.com</a>)</p>
+
+<p>On evidence: exactly one named case study is public — a company-reported procurement bot that reviewed spending across ~125 vendors and claimed $100,000+ in direct savings (43 inactive seats worth $14,220; $85,662/year in unused subscriptions). Treat it as a vendor-supplied anecdote, not verified research.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agents-compared-muse-cowork-chatgpt-work-grok-bot-2.jpg" alt="Head-to-head VS matchup between two contenders"></p>
+
+<h2>What none of them give you: control</h2>
+
+<p>Every agent above is <strong>rented</strong>. You get the capabilities; the vendor keeps the roadmap, the pricing power, the data plane, and the off switch.</p>
+
+<p>Consider what "rented" has already meant in practice. On September 20, Amazon started blocking Muse from browsing and purchasing on its site — stating Meta never obtained permission and the agent creates privacy and security risks. Your shopping agent's reach turned out to be someone else's policy decision, made twelve days after launch.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agents-compared-muse-cowork-chatgpt-work-grok-bot-3.jpg" alt="Human hand reaching toward a robotic hand"></p>
+
+<p>The control gaps are structural, not bugs. AI agents add three dependencies older SaaS didn't:</p>
+
+<ul>
+<li><strong>Behavior drift</strong> — the model's behavior can change under you with an update, with no version pin.</li>
+<li><strong>Action consequences</strong> — the agent takes actions on its own, so a misjudgment costs more than a wrong answer.</li>
+<li><strong>Workflow lock-in</strong> — the workflows the agent learns aren't portable. You can't export them if you leave.</li>
+</ul>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agents-compared-muse-cowork-chatgpt-work-grok-bot-4.jpg" alt="Person controlling a robot with a VR headset — who holds control of the agent"></p>
+
+<p><strong>Roadmap risk.</strong> Features arrive and disappear on the vendor's schedule. Pricing moves from promotional to standard without your vote — OpenAI's own "50% cheaper" model launch was measured against promotional pricing, a reminder that the meter is theirs to set. (<a href="https://sqmagazine.co.uk/openai-gpt-6-sol-luna-half-price-api/" target="_blank" rel="noopener">SQ Magazine</a>)</p>
+
+<p><strong>Data plane.</strong> With the partial exception of Copilot Cowork inside the M365 trust boundary, your work runs on someone else's computers under someone else's retention policies. You don't choose the model version.</p>
+
+<p><strong>The off switch.</strong> Accounts get flagged, APIs deprecated, products redirected. An agent woven into daily operations is a dependency — and dependencies you can't move are risks worth pricing into the decision.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-agents-compared-muse-cowork-chatgpt-work-grok-bot-5.jpg" alt="Business figures balanced on a seesaw — weighing the rent-vs-own AI decision"></p>
+
+<h2>Rent or own: a decision framework</h2>
+
+<p>Not every workflow needs an owned agent:</p>
+
+<p><strong>Rent when speed matters more than sovereignty.</strong> Standard workflows — meeting prep, research summaries, draft content, travel booking — where building costs more than the subscription and no sensitive data is involved. Start with one repetitive workflow, measure baseline hours, compare after a month.</p>
+
+<p><strong>Own when the workflow is the business.</strong> Proprietary data, regulated processes, customer-facing automation, or any workflow where a vendor pricing change or policy block would hurt. If losing the agent would break operations, you should own the agent.</p>
+
+<p><strong>Ask every vendor four questions before committing:</strong> where does my data rest and for how long; what audit trail do I get; how do I export my workflows and history; what happens to my agents if I stop paying.</p>
+
+<h2>The bottom line</h2>
+
+<p>September 2026 gave businesses five credible ways to hand work to an AI agent. Muse leads on consumer reach, Copilot Cowork on enterprise trust boundaries, Claude Cowork on file-based knowledge work, ChatGPT Work on finished deliverables, and Grok Bot on the boldest architecture.</p>
+
+<p>None has independent proof of making a business measurably better yet. Adoption numbers are not outcome numbers, and a single vendor-supplied case study is not research.</p>
+
+<p>Pilot one workflow. Measure it honestly. And decide up front which parts of your operation you're willing to rent — because the pricing, the roadmap, and the off switch stay with the vendor.</p>
+
+<h2>FAQ</h2>
+
+<h3>Which AI agent is best for business in 2026?</h3>
+<p>It depends on your stack: Copilot Cowork for Microsoft 365 shops (trust boundary + governance), Claude Cowork for file-heavy knowledge work, ChatGPT Work for finished deliverables, Grok Bot for recurring operational work, Meta Muse for consumer/shopping tasks. None has independent ROI proof yet — pilot and measure.</p>
+
+<h3>What does "rented vs owned" mean for AI agents?</h3>
+<p>Rented agents run on the vendor's infrastructure: they control the roadmap, pricing, data retention, and can change terms or cut access anytime (e.g., Amazon blocking Muse 12 days after launch). Owned agents run on your infrastructure under your permissions and audit trail. Rent for speed; own when the workflow is the business.</p>
+
+<h3>Why is there no independent effectiveness data yet?</h3>
+<p>The five agents launched within ~10 weeks of each other (July–September 2026). What's public so far: download counts (Muse: 2.8M in 12 days), preview breadth (Copilot Cowork: half the Fortune 500), vendor-reported usage, and one vendor-supplied case study (Grok Bot). Independent outcome studies take quarters, not weeks.</p>
+
+<h3>What's the first step before choosing an agent?</h3>
+<p>Get the vocabulary right: agents, chatbots, and workflow automation are different tools with different failure modes and costs. Our breakdown: <a href="https://seikodigital.com/blog/ai-agent-vs-chatbot-vs-workflow-automation" target="_blank" rel="noopener">AI agent vs chatbot vs workflow automation</a>.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/ai-agents-compared-muse-cowork-chatgpt-work-grok-bot" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
