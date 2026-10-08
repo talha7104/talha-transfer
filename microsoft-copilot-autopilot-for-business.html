@@ -1,0 +1,100 @@
+<p class="dek"><em>Microsoft's biggest Copilot update folds chat, delegated work, app building, and Office into one app — but the real story is Autopilot: a persistent agent with its own identity, permissions, and cost controls. Agents are moving into the infrastructure layer.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Four pieces, one surface:</strong> Home (Chat + Cowork), Office in Copilot, Code (plain-language app builder), and Autopilot (persistent background agent).</li>
+<li><strong>Autopilot</strong> gets its own directory identity — account, email, calendar, storage — provisioned and deprovisioned like a coworker. That's the governance primitive enterprises have been waiting for.</li>
+<li><strong>Code</strong> targets the long tail of internal tooling: small apps hosted inside your tenant under IT governance via Copilot Managed Runtime.</li>
+<li>New <strong>FinOps dashboards</strong> expose AI usage costs — table stakes now that agent features bill on consumption, not flat seats.</li>
+<li><strong>Bottom line:</strong> this is a planning window, not a buying decision. Draft your agent-identity policy now, before the agents arrive.</li>
+</ul>
+
+<p>On September 25, Microsoft announced what CEO Satya Nadella called the company's "biggest update to Copilot to date" — folding chat, long-running delegated work, natural-language app building, and the full Office suite into one redesigned app. His framing: Copilot is becoming "a new OS for work that spans every model, every form factor and every task." (<a href="https://www.reuters.com/technology/microsoft-revamps-copilot-with-code-generation-agentic-ai-tools-2026-09-25/" target="_blank" rel="noopener">Reuters</a>)</p>
+
+<p>The headline is corporate consolidation. The substance is more interesting: Microsoft is moving AI agents from bolted-on chatbots into managed infrastructure — with their own identities, permissions, and cost controls.</p>
+
+<h2>What changed: four pieces, one surface</h2>
+
+<p><strong>Home</strong> is the new starting point. Chat handles quick questions and drafting; <strong>Cowork</strong> takes longer, defined assignments — an RFP response, a launch kit, a financial close package — and returns a finished result.</p>
+
+<p><strong>Office in Copilot</strong> embeds Word, Excel, and PowerPoint directly in the app, so requests produce real files that stay synced with the Office apps.</p>
+
+<p><strong>Code</strong> lets people describe an app, dashboard, tracker, or workflow in plain language and get a working result — powered by the same underlying technology as GitHub Copilot, running in a sandbox, with the option to host the result inside the company's own tenant.</p>
+
+<p><strong>Autopilot</strong> — previously called Scout when unveiled in June — is a persistent agent that keeps working in the background: watching channels, following up on threads, running recurring tasks without being asked each time.</p>
+
+<p>An upcoming change routes each request to the right capability automatically — Chat, Cowork, or Code — so users stop picking modes. Rollout: Home via the Frontier early-access program in the coming weeks; Code to early-access customers at month's end, then Premium/Pro preview later this year; Autopilot to private preview at the end of September. (<a href="https://www.pymnts.com/news/artificial-intelligence/2026/microsoft-bundles-copilot-features-challenge-anthropic-openai-workplace/" target="_blank" rel="noopener">PYMNTS</a>)</p>
+
+<h2>Autopilot is the interesting piece</h2>
+
+<p>Every vendor now has an "agent." What distinguishes Autopilot is the plumbing around it.</p>
+
+<p>The agent gets its own identity in the company directory — account, email, calendar, storage, Teams presence — with permissions the owner controls and colleagues able to @mention it in Teams or Outlook. It is provisioned like a coworker, governed like one, and deprovisioned like one.</p>
+
+<p>This answers the objection that has stalled enterprise agent adoption for a year. As Copilot product chief Annie Pearl put it: <em>"It's been very hard for many organizations to bring agents into the enterprise because of security, compliance and governance concerns."</em></p>
+
+<p>The industry is converging fast: agents are moving into the infrastructure layer, and the winning vendors will be the ones that give IT a real administrative surface — identity, permissions, audit trails, lifecycle management. Microsoft's advantage is simply that it already owns the directory, the identity provider, and the collaboration stack most companies run on.</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-microsoft-copilot-autopilot-for-business-1.jpg" alt="Business professionals collaborating with a laptop"></p>
+
+<h2>Code: plain-language apps, hosted inside your tenant</h2>
+
+<p>The second piece worth taking seriously is Code. Microsoft's pitch: small, purpose-built apps — trackers, dashboards, internal tools — are becoming a fourth unit of knowledge work alongside the document, the spreadsheet, and the deck.</p>
+
+<p>Underneath sits <strong>Copilot Managed Runtime</strong> (now in preview), which hosts generated apps inside a customer's tenant under IT governance, with live-data connections and zero-downtime deployments. (<a href="https://www.testingcatalog.com/microsoft-brings-home-code-and-autopilot-to-copilot/" target="_blank" rel="noopener">TestingCatalog</a>)</p>
+
+<p>The strategic read: this isn't competing with professional developers — Microsoft noted its own engineers keep using GitHub Copilot. It targets the long tail of internal tooling requests that never make an engineering roadmap: the dashboard the operations lead keeps rebuilding in a spreadsheet, the intake tracker a team hacks together in shared notes.</p>
+
+<p>If business users can generate and run those inside a governed tenant, the shadow-tool problem shrinks — and IT keeps the audit trail.</p>
+
+<p>The catch is the same one behind every "citizen developer" promise: someone still has to own the result. Generated apps need named owners, data-access reviews, and a plan for when the person who built them leaves.</p>
+
+<h2>The quiet signal: FinOps for AI</h2>
+
+<p>Easy to miss in the launch, harder to miss in your budget: Microsoft also unveiled cost-management capabilities giving employees and admins direct insight into AI usage costs.</p>
+
+<p>That matters because advanced agent features increasingly run on usage-based billing rather than flat seats. Enterprises are already nervous about AI spend climbing invisibly. Giving finance and IT a real dashboard — and separating fixed subscription use from consumption-based agent work — is table stakes for agent adoption at scale.</p>
+
+<h2>The competitive context</h2>
+
+<p>Several outlets read this as Microsoft retreating from the crowded personal chatbot race and consolidating around corporate users — Fortune framed it earlier this year as a "super app" play against ChatGPT, Gemini, and Claude.</p>
+
+<p>For business buyers, that framing is clarifying. Microsoft is reorganizing Copilot around the assumption that AI belongs in the flow of work. The chatbot era of Copilot — a tab you visit with a question — is being replaced by a background presence that watches, builds, and acts.</p>
+
+<h2>What this means for your business</h2>
+
+<p>Autopilot isn't generally available yet — private preview starts at the end of September. So this is a planning window, not a buying decision. Use it.</p>
+
+<p><strong>Draft your agent-identity policy now.</strong> Autopilot's model — one agent, one identity, scoped permissions — is the right primitive, but the policy still has to come from you: who can provision an agent, what it may touch, what happens when its owner leaves.</p>
+
+<p><strong>Inventory your Copilot licenses and spend.</strong> Before the broader previews land later this year, know what you pay for — and whether the new FinOps dashboards will be enabled for your early testers. You can't govern usage-based AI spend you can't see.</p>
+
+<p><strong>Pick one shadow-tool candidate for Code.</strong> The strongest near-term use case is the internal tracker or dashboard your team keeps rebuilding by hand. Identify one, define the data sources and access rules, and be ready to pilot Code on it under IT supervision.</p>
+
+<p><strong>Separate the experiment budget from the operations budget.</strong> Agent features on usage-based pricing will fail every ROI comparison if evaluated like flat-seat software. Ring-fence a small metered budget, define what "worked" means before you start, and expand only on measured results.</p>
+
+<h2>The bottom line</h2>
+
+<p>Microsoft's biggest Copilot update isn't really about chat. It's about moving agents into the infrastructure layer — with identities, permissions, tenant hosting, and cost visibility — and treating small generated apps as normal knowledge work.</p>
+
+<p>That's the right direction, and it's the direction every enterprise AI program will have to follow: the agent is no longer a demo. It's a managed resource.</p>
+
+<p>If you run on Microsoft 365, the next two quarters are when that shift lands on your tenant. The teams that get value will be the ones that did the governance homework first.</p>
+
+<p>Want a practitioner to look at your setup before the agents arrive? <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">Get a free AI audit</a> — we map where automation actually pays for your business and where it's just noise, and you get a concrete action plan out of it.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is Microsoft Autopilot?</h3>
+<p>Autopilot (previously "Scout") is a persistent AI agent inside the redesigned Copilot app. It works in the background — watching channels, following up on threads, running recurring tasks — with its own directory identity, permissions, and Teams presence. Private preview began end of September 2026.</p>
+
+<h3>What is Copilot Code?</h3>
+<p>A plain-language app builder: describe a tracker, dashboard, or internal tool and get a working app, hosted inside your company's tenant under IT governance via Copilot Managed Runtime. It targets the long tail of internal tooling, not professional software development.</p>
+
+<h3>How is this different from the old Copilot chatbot?</h3>
+<p>The old model was a tab you visited with a question. The new model embeds AI in the flow of work — delegated multi-step assignments (Cowork), background agents (Autopilot), generated apps (Code), and Office files produced in-app.</p>
+
+<h3>What should IT teams do now?</h3>
+<p>Draft an agent-identity policy (provisioning, permissions, offboarding), inventory Copilot spend before usage-based billing spreads, and identify one internal tool as a Code pilot candidate — under IT supervision, with named owners.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/microsoft-copilot-autopilot-for-business" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
