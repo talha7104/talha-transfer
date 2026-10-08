@@ -1,0 +1,95 @@
+<p class="dek"><em>Within 36 hours, Anthropic cut cache pricing 60%, OpenAI halved model prices — and xAI doubled rates past 200K tokens. Sticker prices are falling, but your actual bill is decided by architecture: cache reuse, threshold cliffs, and defaults.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Anthropic:</strong> Claude Opus 5.5 — input $4/M, output $20/M (20% cuts), cache reads $0.20/M (60% cut).</li>
+<li><strong>OpenAI:</strong> GPT-6 Sol and Luna at half GPT-5.6 pricing; 90% off cached-input reads.</li>
+<li><strong>xAI:</strong> Grok 4.7 headline price flat — but <strong>2x rates past 200,000 tokens</strong> per request.</li>
+<li>Three mechanisms decide your real bill: <strong>cache reuse</strong> (20x gap between fresh and cached tokens), <strong>threshold cliffs</strong>, and <strong>defaults</strong> (effort dials, default models).</li>
+<li><strong>Bottom line:</strong> measure cost per task before optimizing; design for cache reuse; watch the cliffs; budget on your numbers, not the price list.</li>
+</ul>
+
+<p>Within roughly 36 hours, two of the biggest AI labs announced API pricing changes — and a third raised prices for one common workload. Anthropic cut cache-read pricing on Claude Opus 5.5 by 60% and trimmed input/output rates 20%. OpenAI shipped GPT-6 Sol and Luna at half the cost of the GPT-5.6 series, with 90% off cached-input reads. xAI, meanwhile, kept Grok 4.7's headline price flat while doubling every rate once a prompt crosses 200,000 tokens. (<a href="https://www.everydev.ai/p/news-weekly-ai-dev-news-digest-september-19-25-2026" target="_blank" rel="noopener">EveryDev</a>)</p>
+
+<p>The sticker prices are falling. Your actual bill may move either way. In AI automation, the invoice is determined less by the price list than by how the system is built.</p>
+
+<h2>What changed this week</h2>
+
+<table>
+<thead>
+<tr><th>Lab</th><th>Model</th><th>What changed</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Anthropic</strong></td><td>Claude Opus 5.5</td><td>Input $4/M, output $20/M (20% cuts); cache reads $0.50 → $0.20/M (60% cut); ~40% lower cost on typical workloads</td></tr>
+<tr><td><strong>OpenAI</strong></td><td>GPT-6 Sol / Luna</td><td>Sol: $2/M in, $10/M out (half of GPT-5.6); Luna: $0.10 in, $0.50 out; 90% off cached-input reads</td></tr>
+<tr><td><strong>xAI</strong></td><td>Grok 4.7</td><td>Headline flat ($2 in / $6 out) — but <strong>2x everything past 200K tokens</strong> ($4/$12; cached $0.50 → $1)</td></tr>
+</tbody>
+</table>
+
+<p>Two caveats before anyone re-budgets:</p>
+
+<p><strong>First, OpenAI's "50% cheaper" is measured against GPT-5.6's <em>promotional</em> pricing</strong> — not the standard list price. Compare it against what you actually paid. (<a href="https://sqmagazine.co.uk/openai-gpt-6-sol-luna-half-price-api/" target="_blank" rel="noopener">SQ Magazine</a>)</p>
+
+<p><strong>Second, Anthropic's "40% less on typical workloads" comes with a quiet footnote:</strong> the default effort setting moved from high to medium in the same release. Some of that headline saving is a dial turned down, not cheaper compute. (<a href="https://tailabs.ai/blog/claude-opus-5-5-cost-story" target="_blank" rel="noopener">Tailabs</a>)</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-ai-pricing-war-1.jpg" alt="Sale tags hanging — the AI API price war"></p>
+
+<h2>The real bill is not the sticker price</h2>
+
+<p>Three mechanisms decide what you actually pay. None of them is on the price list.</p>
+
+<h3>1. Cache reuse can dominate the invoice</h3>
+
+<p>Anthropic says cache reads constitute the majority of costs for agentic and coding workloads. At Opus 5.5's rates, a fresh input token costs $4 per million while a cache read costs $0.20 — a <strong>20x gap</strong>.</p>
+
+<p>An agent that rebuilds its context on every turn pays full freight. One that keeps stable system prompts, tool definitions, and reference material cached pays a fraction. (<a href="https://www.unite.ai/anthropic-ties-claude-opus-5-5-pricing-to-longer-coding-sessions/" target="_blank" rel="noopener">Unite.AI</a>)</p>
+
+<h3>2. Threshold cliffs raise long-context costs</h3>
+
+<p>xAI's 200,000-token line is per request: one oversized document search tips the <em>entire request</em> to 2x pricing. OpenAI has a similar split — Sol bills $2/$10 below 272K input tokens and $4/$15 above it. (<a href="https://www.digitalapplied.com/blog/grok-4-7-benchmarks-price-what-changed" target="_blank" rel="noopener">Digital Applied</a>)</p>
+
+<h3>3. The defaults are part of the price</h3>
+
+<p>The effort-dial change on Opus 5.5 is one example. Another: Claude Code made Opus the default on Pro and Team plans and raised the five-hour limits — the price cut gets spent on volume rather than returned to you.</p>
+
+<h2>Why the labs are diverging</h2>
+
+<p>Lower API prices change the economics of applications generating large token volumes. Providers appear to be competing for the workloads where usage frequency and operational fit matter.</p>
+
+<p>Meanwhile, xAI's 2x tier prices the cost of serving 500,000-token contexts honestly: long context is genuinely expensive compute.</p>
+
+<p>As generation costs decline, engineering decisions — context management, retrieval, caching, orchestration — become larger parts of the application cost model. That's why both price-cutters aimed their deepest discounts at cache reads. And GitHub Copilot adding Grok 4.7 on usage-based billing at provider list prices shows where the coding-assistant money is flowing. (<a href="https://www.everydev.ai/p/news-weekly-ai-dev-news-digest-september-19-25-2026" target="_blank" rel="noopener">EveryDev</a>)</p>
+
+<h2>What this means for your business</h2>
+
+<p><strong>Measure cost per task before you optimize anything.</strong> Run a few hundred real requests. Log cost per completed task, cache-hit rate, and the share of prompts crossing the surcharge threshold. Then set a stop rule in code — pause the job when it trips your budget threshold (one published playbook uses 30% over estimate as the tripwire). (<a href="https://blog.laozhang.ai/en/posts/xai-grok-api-pricing" target="_blank" rel="noopener">Laozhang.ai</a>)</p>
+
+<p><strong>Design for cache reuse — it's now the biggest lever on the bill.</strong> Stable system prompts, tool definitions, reference documents; preserve cached segments across turns; adjust effort and tools without flushing the cache. The 20x gap between fresh and cached tokens means architecture choices now outweigh model choice on most agentic workloads.</p>
+
+<p><strong>Watch the cliffs, and route around them.</strong> If your workload routinely crosses 200,000 tokens, compare providers: xAI's above-threshold cached rate of $1.00/M is five times Anthropic's flat $0.20. Chunk documents, cap retrieval size, keep prompts under the surcharge tier — or route long-context work to the provider whose tier structure favors it.</p>
+
+<p><strong>Budget on your numbers, not the list.</strong> Model the total operating cost: tokens, tool calls, monitoring, human review time. Token price is one line of that worksheet — and this week proved it's the least stable line. Build on provider-neutral logging and routing, so the next pricing change (or a better model) doesn't require a rewrite. And remember: the cheapest token isn't always the cheapest workflow. A cheaper model that needs more retries or more human review can cost more per successful task.</p>
+
+<p><strong>Re-run the ROI math on the pilots you shelved.</strong> A 40–60% drop in workload cost changes the payback calculation on automations that were marginal last quarter. Projects previously limited by inference cost deserve re-evaluation against current pricing and your measured workload numbers.</p>
+
+<h2>The bottom line</h2>
+
+<p>As model prices change, engineering attention shifts toward context management, orchestration, evaluation, and workflow design — the parts of the stack you design, not the parts you buy by the token.</p>
+
+<p>If you want a grounded assessment of where agentic automation actually pays for itself in your operations — and where it doesn't — start with a <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">free AI audit</a>. We'll map your workflows, find the highest-ROI targets, and tell you honestly which ones aren't worth touching yet.</p>
+
+<h2>FAQ</h2>
+
+<h3>Which AI model is cheapest right now?</h3>
+<p>There's no single answer — it depends on your workload shape. GPT-6 Luna ($0.10/M input) is cheapest per token, but cache reuse, threshold cliffs (xAI doubles past 200K tokens), and retry rates decide the real cost per completed task. Measure your own workload before choosing.</p>
+
+<h3>What is prompt caching and why does it matter so much?</h3>
+<p>Prompt caching lets the model reuse previously processed context (system prompts, tool definitions, reference docs) at a fraction of the fresh-token price — up to 20x cheaper on Claude Opus 5.5. For agentic workloads that re-read context every turn, cache-hit rate is now the biggest lever on the bill.</p>
+
+<h3>Are the "50% cheaper" claims honest?</h3>
+<p>Partly. OpenAI's 50% figure is measured against promotional — not list — pricing of GPT-5.6. Anthropic's 40% workload saving partly reflects a default effort-dial change from high to medium. Always compare against what you actually paid, at your actual settings.</p>
+
+<h3>How should we budget for AI API costs?</h3>
+<p>Model total operating cost (tokens, tool calls, monitoring, review time), log cost per completed task on real traffic, set budget tripwires in code, and build provider-neutral routing so the next pricing change doesn't require a rewrite.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/ai-pricing-war" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
