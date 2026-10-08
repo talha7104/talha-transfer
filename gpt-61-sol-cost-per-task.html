@@ -1,0 +1,107 @@
+<p class="dek"><em>OpenAI's GPT-6.1 Sol promises near-flagship intelligence at one-fifth the token price. But the number that matters isn't on the price list — it's cost per completed task. Here's how to think about it.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>GPT-6.1 Sol</strong> (DevDay, Sept 29): $2/M input, $10/M output — one-fifth of Astra's rates — with cached input at just $0.10/M (95% below standard).</li>
+<li>Benchmarks (vendor-reported): matches Astra on DeepSWE v1.1, within 2.1 points on OSWorld 2.0 at ~1/7th the cost per task; beats Opus 5.5 on AutomationBench at ~1/3rd the cost.</li>
+<li>Independent check: Artificial Analysis scores Sol 52 vs Astra 53 — at $0.72 vs $3.26 per index task.</li>
+<li>The real metric is <strong>cost per completed task</strong>, not cost per token: retries, tool-loop turns, and cache hits decide the invoice.</li>
+<li><strong>Bottom line:</strong> route, don't replace — replay flagship traffic through Sol, measure task success end to end, and move every workload where the gap is invisible.</li>
+</ul>
+
+<p>At its DevDay event on September 29, OpenAI introduced GPT-6.1 Sol — positioned as a lower-cost model alongside its higher-capability offering. OpenAI states Sol "nearly matches GPT-6 Astra's intelligence on agentic coding, computer use, and professional work at one-fifth of Astra's standard input and output token prices." (<a href="https://9to5mac.com/2026/09/29/openai-teases-20-announcements-at-devday-watch-live/" target="_blank" rel="noopener">9to5Mac</a>)</p>
+
+<p>The release followed a turbulent week: the planned GPT-6.1 Astra upgrade was cancelled on the eve of the event after failing internal safety testing, per reports. (<a href="https://madrobot.blog/2026/09/29/openai-devday-2026-everything-announced-dots-gpt-6-1-sol-pro-500/" target="_blank" rel="noopener">MadRobot</a>; <a href="https://www.androidheadlines.com/2026/09/openai-launches-gpt-6-1-sol-near-astra-performance.html" target="_blank" rel="noopener">Android Headlines</a>)</p>
+
+<p>For businesses running AI agents against real workloads, this release could materially change automation cost calculations. Here's the practical read.</p>
+
+<h2>What OpenAI actually shipped</h2>
+
+<p>The headline numbers are straightforward:</p>
+
+<table>
+<thead>
+<tr><th>Metric</th><th>GPT-6.1 Sol</th><th>GPT-6 Astra (flagship)</th></tr>
+</thead>
+<tbody>
+<tr><td>Input tokens</td><td>$2 / million</td><td>$10 / million</td></tr>
+<tr><td>Output tokens</td><td>$10 / million</td><td>$50 / million</td></tr>
+<tr><td>Cached input</td><td>$0.10 / million (95% off)</td><td>—</td></tr>
+<tr><td>Availability</td><td>API; ChatGPT Work + Codex (Plus/Pro/Business/Enterprise/Edu)</td><td>API + full ChatGPT</td></tr>
+</tbody>
+</table>
+
+<p>Sol is available through the API and, in ChatGPT, to Plus, Pro, Business, Enterprise, and Edu users inside ChatGPT Work and Codex — but not yet in regular Chat, per DevDay coverage. (<a href="https://madrobot.blog/2026/09/29/openai-devday-2026-everything-announced-dots-gpt-6-1-sol-pro-500/" target="_blank" rel="noopener">MadRobot</a>)</p>
+
+<h3>Why the cache price matters more than the sticker price</h3>
+
+<p>Agent workloads consume more tokens than chat workloads: repeated tool calls, resubmitted context, intermediate steps. An agent resends its system prompt, tool definitions, and conversation history on every turn of the loop. In a long task, that repeated context can dominate the token bill.</p>
+
+<p>At $0.10 per million cached tokens, the cost of repeated context reuse drops substantially — and context reuse is exactly what agent sessions do constantly. As Sam Altman framed it in the DevDay keynote, it's about giving developers "more room to build and run capable agents that reuse context across requests." (<a href="https://wccftech.com/openai-devday-2026-goes-live-over-20-product-launches-including-a-meta-muse-competitor-called-dot-as-sam-altman-takes-the-stage-amid-a-string-of-recent-setbacks/" target="_blank" rel="noopener">Wccftech</a>)</p>
+
+<h2>Benchmarks: OpenAI's claims, honestly labeled</h2>
+
+<p>These are OpenAI's own benchmark claims, reported by the tech press. Treat them as the vendor's best case.</p>
+
+<ul>
+<li><strong>DeepSWE v1.1</strong> (complex software engineering): Sol matches Astra at ~1/5th the cost; beats predecessor GPT-6 Sol by 6.4 points.</li>
+<li><strong>OSWorld 2.0</strong> (agents operating a real computer): within 2.1 points of Astra at ~1/7th the cost per task.</li>
+<li><strong>GDP.pdf</strong> (complex PDFs — tables, charts, fine print): scores higher than Anthropic's Opus 5.5 at less than half the cost per task.</li>
+<li><strong>AutomationBench</strong> (multi-step business workflows): 2.2 points above Opus 5.5 at medium effort, ~1/3rd the cost.</li>
+<li><strong>Terminal-Bench Science:</strong> $5.47/task on Sol vs $23.21 (Opus 5.5) and $23.80 (Astra) — though Astra holds the top score at 68.1%.</li>
+<li><strong>Factuality:</strong> share of responses with factual errors on hard prompts fell 11.4% → 7.7% at low effort, within 1.9 points of Astra overall.</li>
+</ul>
+
+<p>(<a href="https://www.androidheadlines.com/2026/09/openai-launches-gpt-6-1-sol-near-astra-performance.html" target="_blank" rel="noopener">Android Headlines</a>; <a href="https://wccftech.com/openai-devday-2026-goes-live-over-20-product-launches-including-a-meta-muse-competitor-called-dot-as-sam-altman-takes-the-stage-amid-a-string-of-recent-setbacks/" target="_blank" rel="noopener">Wccftech</a>)</p>
+
+<p>One independent check exists: Artificial Analysis scored Sol 52 vs Astra 53 on its Intelligence Index — at <strong>$0.72 vs $3.26 per index task</strong>. Opus 5.5 still leads the index at 58, but at $5.98 per task. (<a href="http://dev.to/axrisi/openai-devday-2026-every-announcement-with-prices-and-availability-1mbh" target="_blank" rel="noopener">dev.to</a>)</p>
+
+<h2>Why cost-per-task beats benchmark scores</h2>
+
+<p>For production workloads, model selection balances capability, reliability, latency, and cost — not the top benchmark number. Agentic workloads consume tokens in long loops: tool calls, retries, self-correction, context replays.</p>
+
+<p>The cost on your invoice is <strong>cost per completed task</strong> — not cost per token, not a benchmark number. A model that's slightly weaker on paper but several times cheaper, using cached context at a steep discount, wins on any workload where the capability gap doesn't change the outcome.</p>
+
+<p>Cached-input pricing also reshapes agent architecture. Systems carrying big tool lists and long memories across dozens of turns — previously too expensive at scale — become economical. Which raises a question worth asking: has anyone recently checked whether your highest-cost model is doing anything the cheaper tier couldn't?</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-gpt-61-sol-cost-per-task-1.jpg" alt="Stacked coins beside a calculator — measuring cost per task"></p>
+
+<h2>What this means for your business</h2>
+
+<p>If you run agents in production — coding assistants, document processing, support automation, multi-step back-office workflows — this release hands you a practical exercise:</p>
+
+<p><strong>Route, don't replace.</strong> Take a representative sample of current flagship-model traffic and replay it through Sol. Measure task success end to end — not benchmark scores. Move every workload where the gap is invisible to the cheaper model. Keep the flagship for the hard minority and route the volume.</p>
+
+<p><strong>Test before you trust.</strong> A cheaper model isn't a drop-in replacement. Evaluate on your own data, monitor for quality regression, set approval thresholds for the swap. Measure latency and failure modes alongside cost — a model needing two retries to match the flagship's first-pass success rate may not be cheaper in practice.</p>
+
+<p><strong>Price your automation per task, not per token.</strong> Build cost-per-completed-task into your agent observability now: retries, tool-loop turns, cache hits included. The moment you can see cost per task by workflow, model-routing decisions stop being debates and become arithmetic. Segment usefully: code generation by test pass rate, document extraction by accuracy, customer workflows by completion rate — then route per workload, not per company.</p>
+
+<p><strong>Use the cache deliberately.</strong> If your agents resend long system prompts and tool definitions every turn, Sol's $0.10 cached-input rate is where savings compound. Session design — what stays in context versus what gets re-fetched — is now a cost lever, not just an engineering choice.</p>
+
+<p><strong>Put budget controls behind the router.</strong> As agent volume grows, inference spend gets harder to predict. The same week Sol launched, <a href="https://www.globenewswire.com/news-release/2026/09/29/3371035/0/en/cribl-launches-streamai-with-free-inference-giving-enterprises-control-over-ai-costs.html" target="_blank" rel="noopener">Cribl launched StreamAI</a> — an AI gateway routing each prompt to the right model with built-in budget controls. Whether you buy or build, a routing layer with spending controls helps manage agent costs at scale.</p>
+
+<p>One caveat, repeated because it matters: all capability numbers above come from OpenAI's own tests. The third-party index broadly confirms the price-to-performance story. But your workloads are the only benchmark that counts — verify on your own data before committing.</p>
+
+<h2>The broader pattern</h2>
+
+<p>Sol replaces GPT-6 Sol just a week after that model's release, per the cited reporting. Model releases now behave like software patches rather than generational events.</p>
+
+<p>The takeaway is durable: <strong>build pipelines model-agnostic, measure cost per completed task, and let the workhorse models carry the volume.</strong> Pricing and model changes will keep shifting automation economics — the teams that benefit most are the ones whose architecture can switch models in an afternoon.</p>
+
+<p>Want to know what your agent workloads actually cost — and which ones could move to a model like Sol today? Start with our <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">free AI audit</a>: we'll map your current AI spend against task-level outcomes and show you where the routing wins are hiding.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is GPT-6.1 Sol?</h3>
+<p>OpenAI's lower-cost model announced at DevDay (Sept 29, 2026): $2/M input and $10/M output tokens — one-fifth of flagship Astra's rates — with cached input at $0.10/M. OpenAI claims it nearly matches Astra on agentic coding, computer use, and professional work.</p>
+
+<h3>How much cheaper is Sol per task, really?</h3>
+<p>Vendor benchmarks suggest dramatic gaps: ~1/5th the cost of Astra on DeepSWE v1.1 at parity, ~1/7th on OSWorld 2.0 within 2.1 points. Independent check (Artificial Analysis): $0.72 vs $3.26 per index task at scores of 52 vs 53. Your workloads are the only benchmark that counts — replay representative traffic before committing.</p>
+
+<h3>Should we switch our agents to Sol?</h3>
+<p>Route, don't replace: replay a representative sample of flagship traffic through Sol, measure task success end to end, and move workloads where the gap is invisible. Keep the flagship for the hard minority. Watch retries — a cheaper model needing two attempts may not be cheaper in practice.</p>
+
+<h3>What's the most important cost lever with Sol?</h3>
+<p>Cached context at $0.10/M (95% off standard input). Agents resend system prompts and tool definitions every turn — session design that maximizes cache reuse is now a cost lever, not just an engineering choice.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/gpt-61-sol-cost-per-task" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
