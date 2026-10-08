@@ -1,0 +1,107 @@
+<p class="dek"><em>Cohere's North 2 isn't a new model — it's an enterprise agent platform upgrade built around the two things that stall real deployments: cost governance and memory. Here's what's in it, what's missing, and the questions to ask before production.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>North 2</strong> (launched Oct 5): redesigned orchestration harness, <strong>cross-session memory</strong>, reusable Skills and Libraries, plus Applications and Automations builders.</li>
+<li><strong>North Admin</strong> is the standout: cost controls, rate limits, user quotas, org-wide caps, per-model/user/department spend views, and alert thresholds <em>before</em> limits hit.</li>
+<li>Model-agnostic (bring your own model), deploys in cloud, on-prem, or fully air-gapped. SOC 2 Type 2, ISO 27001, ISO 42001.</li>
+<li>What's missing: <strong>no public pricing, no independent benchmarks, no stated memory duration</strong> — and the financial-data connectors are planned, not shipping.</li>
+<li><strong>Bottom line:</strong> the architecture direction is right (spend limits + persistent context + deployment choice), but build the business case only against a vendor quote and validated performance.</li>
+</ul>
+
+<p>On October 5, Cohere launched North 2 — calling it the biggest upgrade yet to its enterprise agentic AI platform. It is not a new model. It's an upgrade centered on a redesigned orchestration harness, cross-session memory, and stronger administrative controls. (<a href="https://venturebeat.com/orchestration/coheres-north-2-puts-ai-agents-on-a-budget-and-gives-them-a-memory" target="_blank" rel="noopener">VentureBeat</a>; <a href="https://www.unite.ai/cohere-launches-north-2-with-redesigned-agent-harness-and-memory/" target="_blank" rel="noopener">Unite.AI</a>)</p>
+
+<p>The release is about controlling how agents operate: what they spend, what context they use, what actions they can take, and where they run.</p>
+
+<h2>Cross-session memory and reusable workflow logic</h2>
+
+<p>The core of North 2 is an advanced agent orchestration system for complex, multi-step processes — with people in the loop where decisions need a human. (<a href="https://www.unite.ai/cohere-launches-north-2-with-redesigned-agent-harness-and-memory/" target="_blank" rel="noopener">Unite.AI</a>) Three additions stand out:</p>
+
+<ul>
+<li><strong>Memory.</strong> Agents keep context across sessions instead of starting fresh. Cohere says context persists longer across sub-sessions and agents — though it gave no figure for how much longer. (<a href="https://venturebeat.com/orchestration/coheres-north-2-puts-ai-agents-on-a-budget-and-gives-them-a-memory" target="_blank" rel="noopener">VentureBeat</a>; <a href="https://subagentic.ai/posts/cohere-north-2-agent-platform/" target="_blank" rel="noopener">subagentic.ai</a>)</li>
+<li><strong>Skills.</strong> Reusable capabilities agents call instead of rebuilding the same logic per workflow — a way to standardize workflow logic instead of every employee rebuilding it independently.</li>
+<li><strong>Libraries.</strong> Shared knowledge and assets that agents and users across the organization draw from.</li>
+</ul>
+
+<p>Cohere also bundles <strong>Applications</strong> (prototyping decks, dashboards, documents, and apps from natural language inside chat) and <strong>Automations</strong> (pre-built templates, drag-and-drop workflow builder, real-time monitoring).</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-cohere-north-2-enterprise-ai-agents-1.jpg" alt="Enterprise team collaborating around laptops"></p>
+
+<h2>North Admin: cost governance before the bill arrives</h2>
+
+<p>The most relevant feature for operations teams is cost governance. North Admin gives administrators cost controls, rate limits, user quotas, and organization-wide caps. Token spend is viewable per model, user, department, or agent — with alert thresholds that warn teams <em>before</em> limits are reached — and flow control defines consumption tiers by request and token rate. (<a href="https://venturebeat.com/orchestration/coheres-north-2-puts-ai-agents-on-a-budget-and-gives-them-a-memory" target="_blank" rel="noopener">VentureBeat</a>)</p>
+
+<p>VentureBeat's trackers supply the context: 21% of surveyed enterprises had only reactive monitoring of agent spend, and 68% had traced a confidently wrong agent answer to missing or inconsistent business context in the prior six months. Two different operational risks — weak cost controls and insufficient business context — addressed by separate governance and knowledge features.</p>
+
+<p>One important gap, noted by VentureBeat: <strong>Cohere publishes no price for North</strong> — pricing depends on deployment scale, usage, support, and customization — and no performance benchmarks for North 2. The caps can govern usage, but buyers still need a vendor quote to model total cost.</p>
+
+<h2>Model-agnostic, and it runs where your data lives</h2>
+
+<p>North 2 is explicitly model-agnostic: run Cohere's models or bring your own, with model, harness, search, and embedding components interchangeable — positioned as reducing lock-in. It deploys in the cloud, on-premises, or fully air-gapped. (<a href="https://venturebeat.com/orchestration/coheres-north-2-puts-ai-agents-on-a-budget-and-gives-them-a-memory" target="_blank" rel="noopener">VentureBeat</a>)</p>
+
+<p>On compliance: SOC 2 Type 2, ISO 27001, and ISO 42001 certifications. North Admin enforces guardrails at the individual agent level — filtering content, validating model responses — while autonomy policies restrict agents to authorized actions and route critical decisions to a person. Cohere says it runs continual security testing, including red-teaming and third-party vulnerability scanning. (<a href="https://www.unite.ai/cohere-launches-north-2-with-redesigned-agent-harness-and-memory/" target="_blank" rel="noopener">Unite.AI</a>; <a href="https://mobilesyrup.com/2026/10/05/cohere-rolls-out-enterprise-ai-platform-north-2/" target="_blank" rel="noopener">MobileSyrup</a>)</p>
+
+<p>New connectors: Slack, SharePoint, OneDrive, Outlook, Exchange, Jira, Linear, Notion, GitHub. Financial data connectors (PitchBook, Crunchbase, Daloopa, FiscalAI, S&P Global, FactSet) are <strong>planned, not shipping</strong> — verify before designing a workflow around them.</p>
+
+<p>On the same day, PwC and Cohere announced a global alliance pairing North's platform, models, and retrieval tech with PwC's risk, regulatory, and transformation practices — aimed at moving clients from AI pilots to measurable production outcomes. (<a href="https://www.unite.ai/pwc-and-cohere-form-global-ai-alliance-launching-first-in-canada/" target="_blank" rel="noopener">Unite.AI</a>) It underlines the work outside the platform itself: workflow redesign, governance, risk assessment, systems integration.</p>
+
+<h2>What the launch doesn't tell you</h2>
+
+<ul>
+<li><strong>No price.</strong> Nothing public says what a deployment costs. Evaluate ROI claims only against a quoted price.</li>
+<li><strong>No benchmarks.</strong> No independent performance figures for North 2. Treat capability claims as vendor descriptions until third-party evaluations exist.</li>
+<li><strong>No stated memory duration.</strong> "Context persists longer" is a direction, not a specification.</li>
+<li><strong>Planned vs. shipping.</strong> The financial data connectors are planned, not available.</li>
+</ul>
+
+<p>There's enough public information to evaluate North 2's architecture and governance direction — but not to build a business case. Pricing, workload-specific performance, and several implementation details still require vendor validation.</p>
+
+<h2>The questions to ask before production</h2>
+
+<p><strong>Memory governance.</strong> What gets persisted, how long is it retained, who can inspect or delete it, and how do source-system permissions carry through? Answer these before using persistent memory with sensitive workflows.</p>
+
+<p><strong>Visibility, alerting, or enforcement?</strong> A cap is only as real as its enforcement. Does crossing an org, user, or agent limit stop execution, throttle it, switch models — or merely alert an administrator?</p>
+
+<p><strong>Usage governance is not total cost of ownership.</strong> A cap controls consumption. It doesn't set implementation, infrastructure, integration, support, administration, migration, or human-review costs. Buyers need the full model to calculate returns.</p>
+
+<p><strong>Portability of the workflow.</strong> "Bring your own model" and "low switching cost" aren't synonymous. How portable are agents, skills, libraries, prompts, policies, and observability data when the model changes?</p>
+
+<p><strong>Connector depth.</strong> A connector is not a production integration. Validate permissions, write access, schema coverage, error behavior, and auditability before designing a workflow around one.</p>
+
+<p><strong>Approval mechanics.</strong> Which actions can require approval, who receives the request, what happens on timeout, are approvals recorded?</p>
+
+<p><strong>Auditability.</strong> Can you reconstruct what an agent attempted, which tool it called, which data it accessed, what it cost, and where a human intervened?</p>
+
+<h2>What this means for your business</h2>
+
+<p>Three lessons apply to any AI agent project, with or without North 2:</p>
+
+<p><strong>Put enforceable limits on agent consumption.</strong> Someone must approve agent spend — and see it per user, per department, per agent, in real time. Without enforceable limits, usage can exceed the assumptions behind the business case.</p>
+
+<p><strong>Solve consistency before scaling.</strong> Standardize the tasks first: document the steps, fix the data sources, then give the agent the script. VentureBeat's tracker reinforces it: 68% of surveyed enterprises traced a confidently wrong agent answer to missing or inconsistent business context in the prior six months.</p>
+
+<p><strong>Make deployment location an explicit architecture decision.</strong> Require a documented data-flow and deployment architecture before production use.</p>
+
+<h2>The bottom line</h2>
+
+<p>North 2 pairs operational controls with agent capability: spend limits, security policies, persistent context, deployment choices, administrative visibility. The direction is right.</p>
+
+<p>But direction isn't a business case. Ask to see the limits, the logs, the data boundaries, the approval controls — and full pricing — before moving an agent workflow into production.</p>
+
+<p>Want agents that stay on budget? <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">Take the free AI audit</a> — a short assessment mapping where AI agents could create value in your business and what the governance, cost, and integration requirements would look like.</p>
+
+<h2>FAQ</h2>
+
+<h3>What is Cohere North 2?</h3>
+<p>The October 5, 2026 upgrade to Cohere's enterprise agentic AI platform — not a new model, but a redesigned orchestration harness with cross-session memory, reusable Skills and Libraries, Applications/Automations builders, and the North Admin governance layer (cost controls, quotas, guardrails).</p>
+
+<h3>How does North 2 control AI agent costs?</h3>
+<p>North Admin provides cost controls, rate limits, user quotas, and org-wide caps, with spend visible per model/user/department/agent and alert thresholds before limits hit. But Cohere publishes no pricing — you need a vendor quote to model total cost.</p>
+
+<h3>Can North 2 run on-premises?</h3>
+<p>Yes — cloud, on-premises, or fully air-gapped, and it's model-agnostic (Cohere's models or your own). Certifications listed: SOC 2 Type 2, ISO 27001, ISO 42001.</p>
+
+<h3>What's missing from the launch?</h3>
+<p>Public pricing, independent benchmarks, a specified memory-retention duration — and the financial data connectors (PitchBook, FactSet, etc.) are planned, not shipping. Enough to evaluate the architecture direction; not enough to build a business case without vendor validation.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/cohere-north-2-enterprise-ai-agents" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
