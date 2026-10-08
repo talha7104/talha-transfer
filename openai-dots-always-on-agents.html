@@ -1,0 +1,94 @@
+<p class="dek"><em>At DevDay 2026, OpenAI turned the "always-on agent" rumor into a product: Dots — persistent agents with their own cloud computers that automate recurring work in the background. Here's the operator's reading: what's real, where they fail, and what deserves your attention.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Dots</strong> are always-on autonomous agents: each gets its own cloud computer and browser, works through 4,000+ connected apps, and keeps context over time.</li>
+<li>Standout detail: <strong>"proactive research" mode</strong> — background read-only access that can't send messages or change content. The right posture to start in.</li>
+<li>OpenAI's own warning: <strong>"Dots can still make mistakes, so always review consequential work."</strong> Approval gates aren't optional.</li>
+<li>Rollout: Pro and Business Premium users first (first Dot included free; Dot conversations don't count toward usage limits), Enterprise/Edu/Healthcare as admin-enabled beta.</li>
+<li><strong>Bottom line:</strong> inventory your recurring work this week, write the brief before connecting tools, and instrument the baseline — measured agent work is an improvement; unmeasured is a demo.</li>
+</ul>
+
+<p>Last week's column covered the rumor — an always-on OpenAI agent leaked ahead of DevDay. At DevDay 2026 on September 29, it became an announced product: <strong>Dots</strong>, always-on autonomous agents designed to automate recurring tasks and operate continuously in the background, learning user priorities and freeing users from one-prompt-at-a-time interactions. OpenAI unveiled 20+ updates across ChatGPT, Codex, and its model ecosystem; Dots led the announcements. (<a href="https://techgig.com/news/ai/openai-devday-2026-brings-new-ai-agents-developer-tools/134629820" target="_blank" rel="noopener">TechGig</a>)</p>
+
+<p>What follows is the operator's reading — what's real, where the failure modes are, and what deserves your attention.</p>
+
+<h2>What OpenAI actually shipped</h2>
+
+<p>A Dot is not another chat thread. OpenAI says each Dot gets its own <strong>cloud computer and browser</strong>, works through apps the user connects — more than 4,000 apps through its plugin ecosystem — and keeps context over time. You reach a Dot through ChatGPT on desktop, web, and mobile, and through Slack and Teams, with the same Dot experience across interfaces. (<a href="https://www.digit.in/news/general/openai-dots-announced-at-devday-2026-how-this-always-on-ai-agent-will-handle-tasks-on-your-behalf.html" target="_blank" rel="noopener">Digit.in</a>)</p>
+
+<p>The demonstrations focused on operational workflows, not consumer showcases: triaging recurring bug reports and feature requests, preparing pull requests, managing planning cycles, migrating an application off a retiring API. The product shifts the interaction model from one-off requests toward longer-running delegated tasks. (<a href="https://sifuyik.substack.com/p/openai-devday-keynote-tldr" target="_blank" rel="noopener">Substack / DevDay TLDR</a>)</p>
+
+<h3>Two details that deserve your attention</h3>
+
+<p><strong>Proactive research mode.</strong> In the background, a Dot can look through connected apps using read-only access to find information that may be useful — it cannot send messages or change content in this mode. The read-only posture is the right one to start in: narrower permissions for early experimentation.</p>
+
+<p><strong>Specialist dots for business.</strong> OpenAI is testing agents aimed at workflows involving company systems: procurement, invoice processing, customer support, commercial contracting. Those workflows are common automation candidates — repeatable processes, structured data — and they're where agent deployments get tested against reality. (<a href="https://www.digit.in/news/general/openai-dots-announced-at-devday-2026-how-this-always-on-ai-agent-will-handle-tasks-on-your-behalf.html" target="_blank" rel="noopener">Digit.in</a>)</p>
+
+<h3>Availability and pricing</h3>
+
+<p>Dots are rolling out to <strong>Pro and Business Premium</strong> users in eligible markets, with Enterprise, Edu, and Healthcare access as a beta that a workspace administrator enables. The first Dot is included at no additional cost on Pro and Business Premium — and conversations with a Dot don't count toward ChatGPT usage limits. (<a href="https://www.digit.in/news/general/openai-dots-announced-at-devday-2026-how-this-always-on-ai-agent-will-handle-tasks-on-your-behalf.html" target="_blank" rel="noopener">Digit.in</a>)</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-openai-dots-always-on-agents-1.jpg" alt="Data center servers — always-on AI agents in the cloud"></p>
+
+<h2>The detail that matters: your approval gates</h2>
+
+<p>OpenAI's own guidance is unusually blunt. Users can set custom rules, monitor progress, and decide which actions need approval — and certain sensitive actions (OpenAI names changing a password) will <em>always</em> require the user. And in OpenAI's own words: <strong>"Dots can still make mistakes, so always review consequential work."</strong> (<a href="https://www.digit.in/news/general/openai-dots-announced-at-devday-2026-how-this-always-on-ai-agent-will-handle-tasks-on-your-behalf.html" target="_blank" rel="noopener">Digit.in</a>)</p>
+
+<p>That statement is doing real work. A Dot with its own computer, browser, and thousands of connected apps is a background process with production access. Treat it like a production service: named owner, approved action list, reviewed logs.</p>
+
+<h2>Where always-on agents fail</h2>
+
+<p>The failure modes of background agents are specific and worth naming:</p>
+
+<ul>
+<li><strong>Unwatched wrong actions</strong> — a mistake executed while nobody's looking</li>
+<li><strong>Ambiguous instructions treated as rules</strong> — vague briefs interpreted literally</li>
+<li><strong>Tool-call loops</strong> — burning usage on circular work</li>
+<li><strong>Silent failures</strong> — a task quietly stops completing</li>
+<li><strong>Stale context</strong> — decisions made on outdated information</li>
+</ul>
+
+<p>That list dictates your selection criteria. Good first candidates: repetitive, measurable, reversible, low-risk — report generation, triage, follow-ups. Poor candidates: ambiguous decisions, regulatory judgments, irreversible actions.</p>
+
+<p>Before deployment, define agent ownership, access boundaries, and review procedures — and settle who owns the brief when the person who wrote it changes roles.</p>
+
+<h2>The pricing model lowers the barrier for experimentation</h2>
+
+<p>The first Dot ships included with Pro and Business Premium at no additional cost, and Dot conversations don't consume usage limits. That's a wedge: embed always-on agents in recurring workflows first, price the fleet later.</p>
+
+<p>But the subscription is the cheapest line on the bill. Integration engineering, data cleanup, workflow redesign, security review, and monitoring will dwarf it. <strong>Budget the deployment, not just the seat.</strong></p>
+
+<p>DevDay's other announcements point the same way. GPT-6.1 Sol targets near-Astra intelligence at one-fifth of Astra's token prices. A new $500/month Pro 500 tier offers 25x the Plus allowance with Astra Ultrafast — 300 tokens per second in Codex. (<a href="https://www.analyticsinsight.net/news/openai-devday-2026-20-ai-tools-gpt-61-sol-dots" target="_blank" rel="noopener">Analytics Insight</a>) The trend: lower-cost access to capable models, with latency as the premium feature. Keep the integration layer vendor-neutral — competitors will follow.</p>
+
+<h2>What this means for your business</h2>
+
+<p><strong>Inventory your recurring work this week.</strong> Bug-report triage, report generation, follow-ups, invoice chasing, status compilation — list the tasks that stall waiting for someone's attention. No new product is needed to make the list.</p>
+
+<p><strong>Write the brief before connecting the tools.</strong> Objective, allowed actions, forbidden actions, required approvals, success criteria. Start with read-only access — proactive research mode is effectively that posture — until the agent has earned write access.</p>
+
+<p><strong>Name the operating model.</strong> Who reviews the outputs? Who maintains the agent's instructions when processes change? Who handles exceptions, and who audits the logs? An agent that changes tasks also changes roles — assign them.</p>
+
+<p><strong>Instrument the baseline now.</strong> Cycle time, hours spent, error rates, escalation frequency — measure before the agent touches anything. Agent work that isn't measured against a baseline is a demo, not an improvement.</p>
+
+<h2>The bottom line</h2>
+
+<p>Always-on agent workflows are moving from prototypes into commercial products. The organizations that benefit most will be the ones that defined clear workflows, permissions, and success metrics <em>before</em> the agent got its keys.</p>
+
+<p>Want a grounded map of which of your workflows an always-on agent can actually own — and which ones it can't? <a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">Get a free AI audit</a> and we'll work it through with you.</p>
+
+<h2>FAQ</h2>
+
+<h3>What are OpenAI Dots?</h3>
+<p>Always-on autonomous agents announced at DevDay 2026 (Sept 29). Each Dot gets its own cloud computer and browser, connects to 4,000+ apps, keeps context over time, and automates recurring tasks in the background — reachable via ChatGPT, Slack, and Teams.</p>
+
+<h3>How much do Dots cost?</h3>
+<p>The first Dot is included free on Pro and Business Premium plans, and Dot conversations don't count toward ChatGPT usage limits. Enterprise, Edu, and Healthcare get beta access enabled by a workspace admin. The real cost is deployment: integration, data cleanup, workflow redesign, security review, monitoring.</p>
+
+<h3>What is "proactive research" mode?</h3>
+<p>A background mode where a Dot looks through connected apps with read-only access to find useful information — it cannot send messages or change content. It's the recommended starting posture: narrower permissions while you evaluate.</p>
+
+<h3>What are the main failure modes?</h3>
+<p>Unwatched wrong actions, ambiguous instructions interpreted as rules, tool-call loops burning usage, silent failures, and stale context. Mitigation: start with repetitive, measurable, reversible tasks; define ownership, access boundaries, and review procedures before deployment.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/openai-dots-always-on-agents" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
