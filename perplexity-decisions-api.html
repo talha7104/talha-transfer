@@ -1,0 +1,84 @@
+<p class="dek"><em>Perplexity's Decisions API returns calibrated probabilities instead of text — joining TypeSafe's Jev in a brand-new category: decision models. Three vendors launched deciders on the same day. Here's the benchmark fine print and what it means for your routing layer.</em></p>
+
+<h2>Key takeaways</h2>
+<ul>
+<li><strong>Perplexity's Decisions API</strong> (launched Oct 1, 2026) is powered by <strong>pplx-decider-v1-27b</strong> — open weights (Apache 2.0), fine-tune of Qwen3.8-27B, 262K-token context. Hosted API: $0.04/M input tokens, output free.</li>
+<li>You send text + a typed schema (yes/no, choice, score); it returns <strong>calibrated probabilities per option</strong>. No parsing, no regex, no fragile JSON repair.</li>
+<li>Benchmarks (vendor panel): 85.71% overall vs Jev's 84.51% — a strong same-tier rival, not a coronation. No independent rerun exists yet.</li>
+<li>Same-day launches: <strong>Cloudflare's Clef/Clef-flash</strong> and <strong>AWS Strands Decider 2B</strong>. The category is filling in fast — build your routing layer against a typed schema, not one vendor.</li>
+<li><strong>Bottom line:</strong> if your stack uses an LLM to "decide" anything, you have a brittle middle layer. Run the decider in shadow mode first, define abstention bands, and price the human-review tier before promising automation.</li>
+</ul>
+
+<p>On October 1, 2026, Perplexity opened a Decisions API powered by pplx-decider-v1-27b — a 27-billion-parameter model that, instead of generating text, returns calibrated probabilities over a fixed set of answers: yes or no, this team or that team, a ranked score. No parsing, no regex, no fragile JSON repair. (<a href="https://aiweekly.co/alerts/perplexity-open-sources-27b-decider-edges-jev-on-11-test-panel" target="_blank" rel="noopener">AI Weekly</a>)</p>
+
+<p>This column covered the category five days ago with TypeSafe's Jev. Perplexity's launch makes it a category — and the fine print is where the useful lessons are.</p>
+
+<h2>What the Decisions API actually is</h2>
+
+<p>A decision model is not a smaller chatbot. Perplexity's Hugging Face model card defines the interface: you send text (or text plus images) and a typed schema describing the questions to answer. Each question has a type — <code>noul</code> for yes/no, <code>choice</code> for multiple choice, <code>score</code> for ordered ranking — plus instructions and criteria. The model returns one probability per allowed option. No free text to parse. (<a href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" target="_blank" rel="noopener">Hugging Face</a>)</p>
+
+<p>Perplexity's own example is a support-ticket router: "My Stripe integration keeps failing. Please help ASAP." goes in with criteria for <code>billing</code>, <code>technical_support</code>, and <code>sales</code> — and the model returns the owning team with a calibrated probability per option. A separate <code>noul</code> question measures urgency. That example names the target workload precisely: <strong>classification, routing, triage, and scoring at volume.</strong></p>
+
+<p>The model is a fine-tune of Qwen3.8-27B released as open weights under Apache 2.0, with a 262,144-token context window. The hosted API costs $0.04 per million input tokens with free output. Perplexity's docs show responses under two seconds for short prompts, stretching toward 23 seconds near the input ceiling — a quiet way of saying: <strong>keep your decision contexts small.</strong> (<a href="https://aiweekly.co/alerts/perplexity-open-sources-27b-decider-edges-jev-on-11-test-panel" target="_blank" rel="noopener">AI Weekly</a>)</p>
+
+<h2>Three decider launches in one day</h2>
+
+<p>Perplexity didn't launch into an empty field. On the same day, <strong>Cloudflare shipped Clef and Clef-flash</strong>, and <strong>AWS's Strands Labs released Strands Decider 2B</strong> — three launches aimed at the same classification-and-routing use cases Jev has been serving. (<a href="https://aiweekly.co/alerts/perplexity-open-sources-27b-decider-edges-jev-on-11-test-panel" target="_blank" rel="noopener">AI Weekly</a>)</p>
+
+<p>The practical signal: the category is filling in fast. There's now an open-weight 27B option, a 2B option from AWS, and two models from Cloudflare. <strong>Build your routing layer against a typed schema, not against one vendor's model.</strong></p>
+
+<h2>The benchmark fine print</h2>
+
+<p>Perplexity reports pplx-decider-v1-27b at <strong>85.71%</strong> overall on an 11-benchmark panel of 7,210 samples — edging out Jev at 84.51% and its own Qwen base at 74.76%. The widest gap is on RAGTruth (using retrieved content faithfully): 88.80% vs Jev's 77.27%. It also leads on FinancialPhraseBank, TabFact, and Circa. (<a href="https://huggingface.co/perplexity-ai/pplx-decider-v1-27b" target="_blank" rel="noopener">Hugging Face</a>)</p>
+
+<p>Read the fine print before quoting those numbers. They come from <strong>Perplexity's own panel, measured through the Perplexity API.</strong> The full table is published on the model card, but there's no independent rerun behind the headline figure. Treat the numbers as the vendor's, not a third party's.</p>
+
+<p>Jev still leads on several of the eleven tests, including WinoGrande (90.70% vs 83.30%) and BBH (94.27% vs 82.80%). The honest reading: a strong decider in the same tier as Jev, not a coronation. Both beat the Qwen base by roughly 10 points — a meaningful gap over the old pattern of prompting a chat model to "reply with JSON." (<a href="https://aiweekly.co/alerts/perplexity-open-sources-27b-decider-edges-jev-on-11-test-panel" target="_blank" rel="noopener">AI Weekly</a>)</p>
+
+<p><img decoding="async" loading="lazy" src="https://talhaashfaq.com/wp-content/uploads/2026/10/fp-perplexity-decisions-api-1.jpg" alt="Code on a computer screen — the Decisions API"></p>
+
+<h2>What this means for your business</h2>
+
+<p>If your stack uses an LLM to "decide" anything — route a ticket, classify an email, score a lead — you likely have a <strong>brittle middle layer</strong> where a general model generates text and your code parses it. Every team that's shipped such a pipeline knows the failure list: the model explains instead of answering, the JSON breaks, a prompt tweak silently changes behavior elsewhere.</p>
+
+<p>The Decisions API attacks that layer directly: typed inputs in, calibrated probabilities out, no parsing step to maintain. Three practical consequences:</p>
+
+<p><strong>Thresholds become a business decision, not an engineering hack.</strong> Calibrated probabilities let you write rules like "route automatically above 0.90, human review between 0.70 and 0.90, abstain below 0.70." That's how you put a decision model into production responsibly: define the abstention band, keep humans accountable for high-impact calls, validate calibration per segment — not one global threshold and hope.</p>
+
+<p>And the threshold is a staffing model as much as a number: if 15–20% of your volume lands below 0.70, the human queue floods and your SLA dies. <strong>Price the abstention tier before you promise the automation.</strong> (<a href="https://completeaitraining.com/news/perplexity-releases-a-low-cost-model-for-probability-based/" target="_blank" rel="noopener">Complete AI Training</a>)</p>
+
+<p><strong>Classification gets much cheaper.</strong> At $0.04/M input tokens with free output, a million short tickets costs on the order of ten dollars in model spend at typical prompt sizes — before the human review tier, which will dominate the budget. Compare that with sending every ticket to a full-size chat model and parsing the reply. Reserve expensive frontier models for steps needing real reasoning or generation; run the classification layer on a dedicated small model.</p>
+
+<p><strong>The self-host math is heavy.</strong> Apache 2.0 open weights are a real path to vendor independence — but the model card requires Python 3.12+ and a CUDA GPU with roughly 49 GiB just for weights plus working memory. Running a 27B prefill pass for a simple classification is expensive overkill. (<a href="https://centritude.com/post/perplexity-decider-27b-open-weights-decision-model-fine-tune-187" target="_blank" rel="noopener">SignalHigh</a>) For most teams the hosted API is the rational start — with the typed schema kept vendor-neutral, so you can swap in a smaller decider or your own fine-tune later. One caveat: schema portability is not calibration portability. Every swap means re-validating thresholds against your own labeled data.</p>
+
+<h3>Two adoption notes for operations leaders</h3>
+
+<p><strong>Run it in shadow mode.</strong> Keep your existing parse-based layer live, run the decider alongside it, and diff the disagreements before you cut over.</p>
+
+<p><strong>Answer the data questions first.</strong> The hosted API means your tickets and emails — with their PII — leave your network. Settle data-retention and processing questions before the engineering ones. And treat the criteria text as production logic: "Integration errors" and "Charges and refunds" are now config that routes real work — version it and review changes like code.</p>
+
+<p><strong>Watch latency.</strong> Under two seconds for short prompts is fine for real-time routing; up to 23 seconds near the 262K-token ceiling is not. Decision contexts should be short by design — the relevant ticket, the relevant snippet, the defined options. Feeding whole conversation histories into a decider is using the wrong layer. (<a href="https://medium.com/@gsaidheeraj/perplexity-decider-v1-27b-a-250k-context-decision-model-that-outputs-probabilities-not-text-defe4a7492a2" target="_blank" rel="noopener">Medium</a>)</p>
+
+<h2>The bottom line</h2>
+
+<p>The bigger story is the layer itself. Agents need exactly this underneath them: cheap, typed decision-making between the bigger models' reasoning steps — provided you log the inputs, schema versions, and probabilities so the decisions stay auditable.</p>
+
+<p>Three launches in one day say vendors are converging on the same pattern. If you're automating operations, standardize the decision layer first: it's where probabilities meet policy, and where the ROI arithmetic is easiest to check — once you've measured your error costs and your abstention rate.</p>
+
+<p><a href="https://www.seikodigital.com/free-audit.html" target="_blank" rel="noopener">Find out where AI can pay for itself in your operations — start with our free AI audit.</a></p>
+
+<h2>FAQ</h2>
+
+<h3>What is Perplexity's Decisions API?</h3>
+<p>An API (launched Oct 1, 2026) powered by pplx-decider-v1-27b, an open-weights decision model. Instead of generating text, it returns calibrated probabilities over a fixed set of answers (yes/no, choice, score) defined by a typed schema — built for classification, routing, triage, and scoring at volume.</p>
+
+<h3>How is it different from TypeSafe's Jev?</h3>
+<p>Same category, same tier. Perplexity's vendor panel scores it 85.71% vs Jev's 84.51% across 11 benchmarks — but Jev leads on several individual tests (WinoGrande, BBH), and there's no independent rerun of either vendor's numbers. Perplexity's edge: open weights (Apache 2.0) and a 262K-token context window.</p>
+
+<h3>How should we deploy a decision model responsibly?</h3>
+<p>Three steps: define abstention bands (auto-route above 0.90, human review 0.70–0.90, abstain below), run in shadow mode alongside your existing layer and diff disagreements before cutover, and price the human-review tier — if 15–20% of volume needs review, that's your real budget line.</p>
+
+<h3>Should we self-host the open weights?</h3>
+<p>Probably not at first: ~49 GiB of GPU memory just for weights, and a 27B prefill pass is overkill for simple classification. Start with the hosted API ($0.04/M input, output free), keep the schema vendor-neutral, and re-validate thresholds against your own labeled data on every swap.</p>
+
+<p><em>Originally published on <a href="https://seikodigital.com/blog/perplexity-decisions-api" target="_blank" rel="noopener">Seiko Digital</a>.</em></p>
